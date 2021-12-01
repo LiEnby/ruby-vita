@@ -1,10 +1,9 @@
 TO build for PS Vita:
-```
 autoconf
 ./configure --prefix=~/ruby-bin --host=arm-vita-eabi CFLAGS="-O2 -Wl,-q
 make
 make install
-```
+
 * What's Ruby
 
 Ruby is the interpreted scripting language for quick and
