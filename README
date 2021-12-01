@@ -4,6 +4,9 @@ autoconf
 make
 make install
 
+auto loads app0:/script.rb at startup.
+
+
 * What's Ruby
 
 Ruby is the interpreted scripting language for quick and
