@@ -1,6 +1,6 @@
 TO build for PS Vita:
 autoconf
-./configure --prefix=/home/silica/ruby-bin --host=arm-vita-eabi CFLAGS="-O2 -Wl,-q"
+./configure --prefix="$VITASDK/arm-vita-eabi" --host=arm-vita-eabi CFLAGS="-O2 -Wl,-q"
 make
 make install
 

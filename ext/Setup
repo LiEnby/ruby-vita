@@ -32,4 +32,4 @@ option nodynamic
 #thread
 #tk
 #win32ole
-#zlib
+zlib
