@@ -17,10 +17,6 @@
 #include <signal.h>
 #include <stdio.h>
 
-#ifdef __vita__
-#define HAVE_NATIVETHREAD 1
-#endif
-
 #ifdef __BEOS__
 #undef SIGBUS
 #endif
@@ -37,6 +33,16 @@
 # else
 #  define NSIG (_SIGMAX + 1)      /* For QNX */
 # endif
+#endif
+
+#ifdef __vita__
+int sigblock(int mask){
+	return mask;
+}
+int sigsetmask(int mask){
+	return mask;
+}
+
 #endif
 
 static struct signals {

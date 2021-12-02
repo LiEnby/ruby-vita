@@ -17,7 +17,6 @@
 #include "env.h"
 #include "util.h"
 #include "rubysig.h"
-
 #ifdef HAVE_STDLIB_H
 #include <stdlib.h>
 #endif

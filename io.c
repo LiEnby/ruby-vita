@@ -3280,7 +3280,7 @@ retry:
     }
 
   retry:
-    // rb_thread_stop_timer(); broken for some reason?
+    rb_thread_stop_timer();
     switch ((pid = fork())) {
       case 0:			/* child */
         rb_thread_atfork();
@@ -3309,13 +3309,13 @@ retry:
 		    ruby_sourcefile, ruby_sourceline, pname);
 	    _exit(127);
 	}
-	// rb_thread_start_timer(); Broken somehow
+	rb_thread_start_timer();
 	rb_io_synchronized(RFILE(orig_stdout)->fptr);
 	rb_io_synchronized(RFILE(orig_stderr)->fptr);
 	return Qnil;
 
       case -1:			/* fork failed */
-	// rb_thread_start_timer(); Broken somehow
+	rb_thread_start_timer();
 	if (errno == EAGAIN) {
 	    rb_thread_sleep(1);
 	    goto retry;
@@ -3336,7 +3336,7 @@ retry:
 	break;
 
       default:			/* parent */
-	// Broken somehow rb_thread_start_timer();
+	rb_thread_start_timer();
 	if (pid < 0) rb_sys_fail(pname);
 	else {
 	    VALUE port = io_alloc(rb_cIO);
