@@ -31,6 +31,7 @@ char *strchr _((char*,char));
 #endif
 #ifdef __vita__
 char *getwd(char *buf){
+	rb_raise(rb_eNotImpError,"getwd() function does not exist on VITA platform.");	
 	return -1;
 }
 #endif

@@ -82,43 +82,50 @@ char *strrchr _((const char*,const char));
 
 #ifdef __vita__
 uid_t geteuid(){
-	return 0;
+	rb_raise(rb_eNotImpError,"geteuid() function does not exist on VITA platform.");
+	return -1;
 }
 uid_t getuid() {
-	return 0;
+	rb_raise(rb_eNotImpError,"getuid() function does not exist on VITA platform.");
+	return -1;
 }
 utime(const char *filename, const struct utimbuf *times){
-	return 0;
+	rb_raise(rb_eNotImpError,"utime() function does not exist on VITA platform.");
+	return -1;
 }
 gid_t getegid(){
-	return 0;
+	rb_raise(rb_eNotImpError,"getegid() function does not exist on VITA platform.");
+	return -1;
 }
 
 gid_t getgid(){
-	return 0;
+	rb_raise(rb_eNotImpError,"getgid() function does not exist on VITA platform.");
+	return -1;
 }
 
-int chmod(const char *pathname, mode_t mode){
-	return 0;
-}
 
 int fchown(int fd, uid_t owner, gid_t group){
-	return 0;
+	rb_raise(rb_eNotImpError,"fchown() function does not exist on VITA platform.");
+	return -1;
 }
 
 int chown(const char *path, uid_t owner, gid_t group){
-	return 0;
+	rb_raise(rb_eNotImpError,"chown() function does not exist on VITA platform.");
+	return -1;
 }
 
 mode_t umask(mode_t mask){
-	return mask;
+	rb_raise(rb_eNotImpError,"umask() function does not exist on VITA platform.");
+	return -1;
 }
 
 struct passwd *getpwnam(const char *name){
+	rb_raise(rb_eNotImpError,"getpwnam() function does not exist on VITA platform.");
 	return NULL;
 }
 
 void endpwent(void){
+	rb_raise(rb_eNotImpError,"endpwent() function does not exist on VITA platform.");
 	return;
 }
 

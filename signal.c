@@ -37,10 +37,12 @@
 
 #ifdef __vita__
 int sigblock(int mask){
-	return mask;
+	rb_raise(rb_eNotImpError,"sigblock() function does not exist on VITA platform.");	
+	return -1;
 }
 int sigsetmask(int mask){
-	return mask;
+	rb_raise(rb_eNotImpError,"sigsetmask() function does not exist on VITA platform.");	
+	return -1;
 }
 
 #endif

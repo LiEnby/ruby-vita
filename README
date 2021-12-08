@@ -1,6 +1,6 @@
 TO build for PS Vita:
 autoconf
-./configure --prefix="$VITASDK/arm-vita-eabi" --host=arm-vita-eabi CFLAGS="-O2 -Wl,-q" --enable=pthread=yes
+./configure --prefix="$VITASDK/arm-vita-eabi" --host=arm-vita-eabi CFLAGS="-O3 -Wl,-q" --enable-pthread=yes
 make
 make install
 

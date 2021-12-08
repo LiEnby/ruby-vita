@@ -118,19 +118,23 @@ static VALUE S_Tms;
 
 #ifdef __vita__
 pid_t getppid(void){
-	return 0;
+	rb_raise(rb_eNotImpError,"getppid() function does not exist on VITA platform.");	
+	return -1;
 }
 int execv(const char *path, char *const argv[]){
-	return EACCES;
+	rb_raise(rb_eNotImpError,"execv() function does not exist on VITA platform.");		
+	return -1;
 }
 
 int execl(const char *path, const char *arg, ...){
-	return EACCES;
+	rb_raise(rb_eNotImpError,"execl() function does not exist on VITA platform.");		
+	return -1;
 }
 #define wait wait_vita
 
  pid_t wait_vita(int *wstatus){
- 	return 0;
+	rb_raise(rb_eNotImpError,"wait() function does not exist on VITA platform.");		
+ 	return -1;
  }
 #endif
 

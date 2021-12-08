@@ -11,6 +11,7 @@
   Copyright (C) 2000  Information-technology Promotion Agency, Japan
 
 **********************************************************************/
+#pragma GCC push_options
 #pragma GCC optimize ("O0")
 #if defined(__VMS)
 #define _XOPEN_SOURCE
@@ -126,11 +127,13 @@ extern void Init_File _((void));
 	do {int saved_errno = errno; stmts; errno = saved_errno;} while (0)
 #ifdef __vita__
 int ioctl(int fd, unsigned long request, ...){
-	return 0;
+	rb_raise(rb_eNotImpError,"ioctl() function does not exist on VITA platform.");
+	return -1;
 }
 
 int pipe(int pipefd[2]){
-	return 0;
+	rb_raise(rb_eNotImpError,"pipe() function does not exist on VITA platform.");	
+	return -1;
 }
 
 #endif
@@ -6216,4 +6219,4 @@ Init_IO()
     rb_file_const("SYNC", INT2FIX(O_SYNC));
 #endif
 }
-#pragma GCC optimize ("O2")
+#pragma GCC pop_options

@@ -49,11 +49,6 @@ char *strstr _((const char*,const char*));
 char *getenv();
 #endif
 
-#ifdef __vita__
-int chdir(const char *path){
-	return 0;
-}
-#endif
 
 VALUE ruby_debug = Qfalse;
 VALUE ruby_verbose = Qfalse;
