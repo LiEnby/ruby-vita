@@ -82,12 +82,18 @@ char *strrchr _((const char*,const char));
 
 #ifdef __vita__
 uid_t geteuid(){
-	rb_raise(rb_eNotImpError,"geteuid() function does not exist on VITA platform.");
-	return -1;
+	// under henkaku, were basically always running as root
+	// technically though there is no euid / uid
+	// however ruby uses this to check permissions sometimes
+	// so lets just say were always root.
+	return 0;
 }
 uid_t getuid() {
-	rb_raise(rb_eNotImpError,"getuid() function does not exist on VITA platform.");
-	return -1;
+	// under henkaku, were basically always running as root
+	// technically though there is no euid / uid
+	// however ruby uses this to check permissions sometimes
+	// so lets just say were always root.
+	return 0;
 }
 utime(const char *filename, const struct utimbuf *times){
 	rb_raise(rb_eNotImpError,"utime() function does not exist on VITA platform.");
