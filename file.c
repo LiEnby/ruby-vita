@@ -82,17 +82,13 @@ char *strrchr _((const char*,const char));
 
 #ifdef __vita__
 uid_t geteuid(){
-	// under henkaku, were basically always running as root
-	// technically though there is no euid / uid
-	// however ruby uses this to check permissions sometimes
-	// so lets just say were always root.
+	// This makes no sense on vita, but its required for tons of functions in ruby
+	// so lets just say were always root, :D
 	return 0;
 }
 uid_t getuid() {
-	// under henkaku, were basically always running as root
-	// technically though there is no euid / uid
-	// however ruby uses this to check permissions sometimes
-	// so lets just say were always root.
+	// This makes no sense on vita, but its required for tons of functions in ruby
+	// so lets just say were always root, :D
 	return 0;
 }
 utime(const char *filename, const struct utimbuf *times){
@@ -100,13 +96,15 @@ utime(const char *filename, const struct utimbuf *times){
 	return -1;
 }
 gid_t getegid(){
-	rb_raise(rb_eNotImpError,"getegid() function does not exist on VITA platform.");
-	return -1;
+	// This makes no sense on vita, but its required for tons of functions in ruby
+	// so lets just say were always root, :D
+	return 0;
 }
 
 gid_t getgid(){
-	rb_raise(rb_eNotImpError,"getgid() function does not exist on VITA platform.");
-	return -1;
+	// This makes no sense on vita, but its required for tons of functions in ruby
+	// so lets just say were always root, :D
+	return 0;
 }
 
 
