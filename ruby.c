@@ -1174,13 +1174,8 @@ init_ids()
 {
     uid = (int)getuid();
     euid = (int)geteuid();
-#ifdef __vita__
-    gid = 0;
-    egid = 0;
-#else
     gid = (int)getgid();
     egid = (int)getegid();
-#endif
 #ifdef VMS
     uid |= gid << 16;
     euid |= egid << 16;
