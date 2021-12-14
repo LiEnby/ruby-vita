@@ -11,8 +11,6 @@
   Copyright (C) 2000  Information-technology Promotion Agency, Japan
 
 **********************************************************************/
-#pragma GCC push_options
-#pragma GCC optimize ("O0")
 #if defined(__VMS)
 #define _XOPEN_SOURCE
 #define _POSIX_C_SOURCE 2
@@ -6219,4 +6217,3 @@ Init_IO()
     rb_file_const("SYNC", INT2FIX(O_SYNC));
 #endif
 }
-#pragma GCC pop_options
